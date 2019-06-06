@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+
+# Editors
+.idea/
+.vscode/
+
+.eslintcache
+
+# Creds
+.env

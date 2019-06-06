@@ -1,0 +1,33 @@
+type User {
+	"Universal Unique ID for the User"
+	uuid: ID!
+
+	"User's First Name"
+	firstName: String
+	"User's Last Name"
+	lastName: String
+	"User's E-mail address"
+	email: String!
+	"Last Activity of the User"
+	lastActivityDate: DateTime
+}
+
+extend type Query {
+	"The currently authenticated user."
+	viewer: User
+}
+
+input LoginInput {
+	"Email to login with."
+	email: String!
+	"Password of account."
+	password: String!
+}
+
+type LoginPayload {
+	accessToken: String!
+}
+
+extend type Mutation {
+	login(input: LoginInput!): LoginPayload
+}

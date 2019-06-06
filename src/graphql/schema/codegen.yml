@@ -1,0 +1,20 @@
+schema:
+  - ./src/graphql/schema/*.graphql
+overwrite: true
+config:
+  avoidOptionals: true
+  noSchemaStitching: true
+  namingConvention:
+    typeNames: change-case#pascalCase
+    enumValues: change-case#upperCase
+  scalars:
+    DateTime: Date
+generates:
+  src/generated/index.ts:
+    config:
+      contextType: '../graphql/context#Context'
+    plugins:
+      - add: |
+          /* eslint-disable */
+      - typescript
+      - typescript-resolvers
